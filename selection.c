@@ -12,15 +12,19 @@ int main () {
     }
 }
 
+
+int min;
 void selection_sort ( int v[], int size ) {
     int temp = -1;
     for ( int i = 0; i < size - 1; i++ ) {
+        min = i;
         for ( int i2 = i; i2 < size; i2++ ) {
-            if ( v[ i ] > v[ i2 + 1 ] ) {
-                temp = v[ i2 + 1 ];
-                v [ i2 + 1 ] = v[ i ];
-                v[ i ] = temp; 
+            if ( v[ i2 ] < v[ min ] ) {
+                min = i2;
             }
         }
+        temp = v[ i ];
+        v[ i ] = v[ min ];
+        v[ min ] = temp;
     }
 }
